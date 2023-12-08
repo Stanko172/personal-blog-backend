@@ -2,7 +2,9 @@
 
 set -e
 
-MYSQL_PASSWORD=$1
+MYSQL_DATABASE=$1
+MYSQL_USERNAME=$2
+MYSQL_PASSWORD=$3
 
 PROJECT_DIR="/var/www/html/personal-blog/backend"
 
