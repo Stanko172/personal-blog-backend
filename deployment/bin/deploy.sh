@@ -25,7 +25,8 @@ composer install --no-interaction --optimize-autoloader --no-dev --ignore-platfo
 # initialize .env if does not exist (first deploy)
 if [ ! -f $PROJECT_DIR"/env" ]; then
     cp .env.example .env
-    sed -i "/DB_DATABASE/c\DB_DATABASE=personal_blog" $PROJECT_DIR"/.env"
+    sed -i "/DB_DATABASE/c\DB_DATABASE=$MYSQL_DATABASE" $PROJECT_DIR"/.env"
+    sed -i "/DB_USERNAME/c\DB_USERNAME=$MYSQL_USERNAME" $PROJECT_DIR"/.env"
     sed -i "/DB_PASSWORD/c\DB_PASSWORD=$MYSQL_PASSWORD" $PROJECT_DIR"/.env"
     sed -i '/QUEUE_CONNECTION/c\QUEUE_CONNECTION=database' $PROJECT_DIR"/.env"
     php artisan key:generate
